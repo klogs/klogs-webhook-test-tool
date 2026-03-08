@@ -1,4 +1,4 @@
-# klogs-webhook-test-tool
+# Klogs Webhook Test Tool
 
 A CLI tool that lets you receive [Klogs](https://klogs.io) webhook events on your **local development machine** — no public URL or tunneling setup required.
 
@@ -101,16 +101,10 @@ Log in to the Klogs Dashboard to generate a test key:
 webhook --key YOUR_TEST_KEY --host https://localhost:44325
 ```
 
-**Production API:**
+**Production:**
 
 ```bash
 webhook --key YOUR_TEST_KEY --host https://localhost:44325 --api https://hook.klogs.io
-```
-
-**Using short aliases:**
-
-```bash
-webhook -k YOUR_TEST_KEY -h https://localhost:44325
 ```
 
 ## What Gets Forwarded
@@ -124,10 +118,6 @@ When a webhook event arrives, the tool reconstructs the original HTTP request ta
 | **Body**       | Forwarded as `application/json` or `application/x-www-form-urlencoded` based on content type|
 
 The HTTP status code and response body returned by your local application are logged to the console.
-
-## Stopping the Tool
-
-Press `Ctrl+C` to gracefully stop the tool.
 
 ## License
 
