@@ -26,9 +26,9 @@ Ready-to-use self-contained executables (no .NET installation required) are avai
 | Platform        | File to download                  |
 |-----------------|-----------------------------------|
 | Windows x64     | `webhook_win-x64.zip`             |
-| Linux x64       | `webhook_linux-x64.tar.gz`        |
-| macOS x64       | `webhook_osx-x64.tar.gz`          |
-| macOS ARM64     | `webhook_osx-arm64.tar.gz`        |
+| Linux x64       | `webhook_linux-x64.zip`           |
+| macOS x64       | `webhook_osx-x64.zip`             |
+| macOS ARM64     | `webhook_osx-arm64.zip`           |
 
 Extract the archive and run the `webhook` executable directly — no installation needed.
 
@@ -78,11 +78,11 @@ webhook --key <KEY> --host <LOCAL_URL> [--api <API_URL>]
 
 ### Options
 
-| Option  | Alias | Description                                                   | Required | Default                    |
-|---------|-------|---------------------------------------------------------------|----------|----------------------------|
-| `--key` | `-k`  | Webhook test key from the Klogs Dashboard                     | Yes      | —                          |
-| `--host`| `-h`  | Local application URL (e.g. `https://localhost:44325`)        | Yes      | —                          |
-| `--api` | `-a`  | Klogs webhook relay API address                               | No       | `https://hook.klogs.dev`   |
+| Option     | Alias | Description                                                   | Required | Default                    |
+|------------|-------|---------------------------------------------------------------|----------|----------------------------|
+| `--key`    | `-k`  | Webhook test key from the Klogs Dashboard                     | Yes      | —                          |
+| `--host`   | `-h`  | Local application URL (e.g. `https://localhost:44325`)        | Yes      | —                          |
+| `--api`    | `-a`  | Klogs webhook relay API address                               | No       | `https://hook.klogs.dev`   |
 
 ### Webhook Test Key
 
