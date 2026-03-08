@@ -16,8 +16,21 @@ A CLI tool that lets you receive [Klogs](https://klogs.io) webhook events on you
 
 ## Prerequisites
 
-- [.NET 8.0 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) or later (only needed if not using a self-contained build)
+- [.NET 8.0 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) or later (only needed when building from source)
 - A Klogs account and a webhook test key
+
+## Download Pre-Built Binaries
+
+Ready-to-use self-contained executables (no .NET installation required) are available on the [releases page](https://github.com/klogs/klogs-webhook-test-tool/releases/tag/latest):
+
+| Platform        | File to download                  |
+|-----------------|-----------------------------------|
+| Windows x64     | `webhook_win-x64.zip`             |
+| Linux x64       | `webhook_linux-x64.tar.gz`        |
+| macOS x64       | `webhook_osx-x64.tar.gz`          |
+| macOS ARM64     | `webhook_osx-arm64.tar.gz`        |
+
+Extract the archive and run the `webhook` executable directly — no installation needed.
 
 ## Getting Started
 
@@ -31,13 +44,31 @@ dotnet build src/Klogs.Webhook.TestHost/Klogs.Webhook.TestHost.csproj
 
 The compiled executable will be `webhook` (or `webhook.exe` on Windows).
 
-### Publish as a Self-Contained Single Executable
+### Build Self-Contained Executables for All Platforms
 
-```bash
-dotnet publish src/Klogs.Webhook.TestHost/Klogs.Webhook.TestHost.csproj -c Release -r win-x64 --self-contained
+The repository includes build scripts that produce self-contained, single-file executables for all supported platforms at once. Output is written to the `publish/` directory.
+
+**Windows — run `build.bat`:**
+
+```bat
+build.bat
 ```
 
-> Replace `win-x64` with your target runtime identifier — e.g., `linux-x64` or `osx-x64`.
+**Linux / macOS — run `build.sh`:**
+
+```bash
+chmod +x build.sh
+./build.sh
+```
+
+Both scripts target the following runtimes:
+
+| Platform    | Runtime Identifier |
+|-------------|--------------------|
+| Windows x64 | `win-x64`          |
+| Linux x64   | `linux-x64`        |
+| macOS x64   | `osx-x64`          |
+| macOS ARM64 | `osx-arm64`        |
 
 ## Usage
 
