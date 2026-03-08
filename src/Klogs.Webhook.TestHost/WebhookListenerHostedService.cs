@@ -39,13 +39,13 @@ namespace Klogs.Webhook.TestHost
 
         //private static readonly ManualResetEvent exit = new ManualResetEvent(false);
 
-        private const string HART_BEAT = "Hartbeat";
+        private const string HEARTBEAT = "Heartbeat";
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
             _timer = new Timer(state => 
             {
-                _client.Send(HART_BEAT);
+                _client.Send(HEARTBEAT);
 
             }, null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
 
@@ -60,7 +60,7 @@ namespace Klogs.Webhook.TestHost
 
             _client.MessageReceived.Subscribe(async msg =>
             {
-                if (msg.Text == HART_BEAT)
+                if (msg.Text == HEARTBEAT)
                 {
                     return;
                 }
@@ -105,7 +105,7 @@ namespace Klogs.Webhook.TestHost
 
             Task.Run(() =>
             {
-                _client.Send(HART_BEAT);
+                _client.Send(HEARTBEAT);
             });
 
             _logger.LogInformation("For exit press Ctrl+C.");
